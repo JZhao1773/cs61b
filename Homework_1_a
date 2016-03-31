@@ -1,0 +1,29 @@
+import java.net.*;
+import java.io.*;
+
+public class HomeWork_1 {
+	public static void main(String[] args) throws Exception {
+		BufferedReader keyboard;
+		String inputLine;
+		
+		keyboard = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Please enter the name of a company (without spaces) : ");
+		System.out.flush();
+		inputLine = keyboard.readLine();
+		
+		String web = "http://www." + inputLine + ".com";
+		URL url = new URL(web);
+		BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+		String[] lines = new String[5];
+		String line;
+		int i = 0;
+		while((line = reader.readLine()) != null && i < lines.length) {
+			lines[i] = line;
+			i++;
+		}
+		
+		for (int j = lines.length - 1; j >= 0; j--) {
+			System.out.println(lines[j]);
+		}
+	}
+}
