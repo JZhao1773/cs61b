@@ -1,0 +1,36 @@
+import java.io.*;
+
+public class Hw1_Nuke2 {
+	public String readWord() throws Exception {
+		BufferedReader keyboard;
+		String inputLine;
+		
+		keyboard = new BufferedReader(new InputStreamReader(System.in));
+		System.out.print("Please enter the word (without spaces) : ");
+		System.out.flush();
+		inputLine = keyboard.readLine();
+		return inputLine;
+	}
+	
+	public String transWord(String word) throws Exception{
+		int le = word.length();
+		char[] result = new char[le-1];
+		result[0] = word.charAt(0);
+		for (int i = 1; i < le-1; i++) {
+			result[i] = word.charAt(i + 1);
+		}
+		String reString = new String(result);
+		return reString;
+	}
+	
+	public void print(String word) {
+		System.out.println(word);
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Hw1_Nuke2 test = new Hw1_Nuke2();
+		String input = test.readWord();
+		String output = test.transWord(input);
+		test.print(output);
+	}
+}
